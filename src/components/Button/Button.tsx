@@ -5,7 +5,7 @@ export interface ButtonProps {
 }
 
 const Button = (props: ButtonProps) => {
-  return <button className={tw(apply`bg-pink-500`)}>{props.label}</button>;
+  return <button className={tw(apply`bg-main-500`)}>{props.label}</button>;
 };
 
 export default Button;
