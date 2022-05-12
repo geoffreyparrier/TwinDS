@@ -1,4 +1,4 @@
-import { Label } from "..";
+import { Label } from "../Label/Label";
 import { twa } from "../../utils/twa";
 import { CommonFormInputProps } from "../Form/Form";
 import { InputGroup } from "../Form/InputGroup";

@@ -1,4 +1,4 @@
-import "twind/colors";
+export { Accordion } from "./Accordion";
 export { Avatar } from "./Avatar/Avatar";
 export { AvatarGroup } from "./AvatarGroup/AvatarGroup";
 export { Badge } from "./Badge/Badge";
