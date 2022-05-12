@@ -10,7 +10,7 @@ export interface RadioButtonProps {
 
 
 
-const RadioButton = (props: RadioButtonProps) => {
+export const RadioButton = (props: RadioButtonProps) => {
     function onSelectClick() {
         props.selected = !props.selected  
     }
@@ -38,5 +38,3 @@ const RadioButton = (props: RadioButtonProps) => {
     
 
 };
-
-export default RadioButton;
