@@ -1,3 +1,3 @@
 import "twind/colors";
-export { default as Button } from "./Button";
+export { Button } from "./Button/Button";
 export { Label } from "./Label/Label";
