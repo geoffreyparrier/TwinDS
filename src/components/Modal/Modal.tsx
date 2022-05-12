@@ -1,5 +1,6 @@
 import {twa} from "../../utils/twa";
 import {PropsWithChildren, useEffect, useRef, useState} from "react";
+import {useClickAway} from "../../utils/hooks/useClickAway";
 
 export interface ModalContentProps{
     onClose: () => void;
@@ -22,18 +23,7 @@ export function Modal(props: PropsWithChildren<ModalProps>){
 
 function ModalContent(props: PropsWithChildren<ModalContentProps>){
     const modalRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        document.addEventListener('click', handleRefClick);
-        return () => {document.removeEventListener('click', handleRefClick)};
-    },[]);
-
-    const handleRefClick = (event: MouseEvent) => {
-        if(!modalRef.current?.contains(event.target as Element)){
-            props.onClose();
-        }
-    };
-
+    useClickAway(modalRef, props.onClose);
     return (
         <div className={twa`h-screen w-screen fixed top-0 left-0 flex bg-[#00000080]`}>
             <div ref={modalRef} className={twa`relative m-auto bg-gray-200 rounded-md shadow-lg px-4 py-3`}>
