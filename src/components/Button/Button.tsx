@@ -1,8 +1,8 @@
 import { twa } from "../../utils/twa";
-import {ReactNode} from "react";
-import {Loader} from "..";
+import { ReactNode } from "react";
+import { Loader } from "../Loader/Loader";
 
-export interface ButtonProps extends Partial<JSX.IntrinsicElements["button"]>{
+export interface ButtonProps extends Partial<JSX.IntrinsicElements["button"]> {
   label: string;
   icon?: ReactNode;
   iconPosition?: string;
