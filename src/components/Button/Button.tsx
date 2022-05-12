@@ -6,6 +6,7 @@ export interface ButtonProps extends Partial<JSX.IntrinsicElements["button"]>{
   icon?: ReactNode;
   iconPosition?: string;
   filled?: boolean;
+  loading?: boolean;
 }
 
 export const Button = (props: ButtonProps) => {
