@@ -9,10 +9,11 @@ export interface ButtonProps extends Partial<JSX.IntrinsicElements["button"]> {
   filled?: boolean;
   loading?: boolean;
   rounded?: boolean;
+  classes?: string;
 }
 
 export const Button = (props: ButtonProps) => {
-    const {icon, label, iconPosition = 'left', filled = false, loading = false, rounded = true, ...other} = props;
+    const {icon, label, iconPosition = 'left', filled = false, loading = false, rounded = true, classes = '', ...other} = props;
     let colorClasses = 'not-disabled:hover:bg-main-700 not-disabled:hover:text-white text-main-800 border-main-700';
     if(props.filled) colorClasses = 'not-disabled:hover:bg-transparent not-disabled:hover:text-main-800 bg-main-700 text-white border-main-700';
 
@@ -24,7 +25,7 @@ export const Button = (props: ButtonProps) => {
         </>
     );
     return (
-        <button {...other} className={twa`flex gap-2 content-around border ${colorClasses} focus:outline-none px-4 py-2 ${rounded ? 'rounded-full' : ''} duration-150 transition outline-none active:scale-95 disabled:active:scale-100 disabled:opacity-50 disabled:cursor-default`}>
+        <button {...other} className={twa`flex gap-2 content-around border ${colorClasses} focus:outline-none px-4 py-2 ${rounded ? 'rounded-full' : ''} duration-150 transition outline-none active:scale-95 disabled:active:scale-100 disabled:opacity-50 disabled:cursor-default ${classes}`}>
             {(!props.iconPosition || props.iconPosition === 'left') && iconElement}
             <div className={twa``}>
                 {props.label}

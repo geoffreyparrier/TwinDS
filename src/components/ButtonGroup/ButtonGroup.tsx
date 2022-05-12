@@ -8,7 +8,13 @@ export interface ButtonGroupProps{
 export function ButtonGroup(props: ButtonGroupProps){
     return (
         <div className={twa`rounded-md flex`}>
-            {props.buttons.map((btn,index) => (<Button key={`btn-${index}`} rounded={false} {...btn}/>))}
+            {props.buttons.map((btn,index) => (
+                <Button
+                    key={`btn-${index}`}
+                    classes={index === 0 ? 'rounded-l-md' : (index === props.buttons.length - 1 ? 'rounded-r-md' : '')}
+                    rounded={false}
+                    {...btn}
+                />))}
         </div>
     );
 }
