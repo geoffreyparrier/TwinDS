@@ -12,3 +12,5 @@ export { BackdropLoader, Loader } from "./Loader/Loader";
 export { Modal } from "./Modal/Modal";
 export { RadioButton } from "./RadioButton/RadioButton";
 export { Select } from "./Select";
+export { Progress } from './Progress/Progress';
+export { Rating } from './Rating/Rating';
