@@ -24,7 +24,7 @@ Property | Type | Required | Description
 Context allowing to fire global alerts.
 
 Usage : 
-```
+```javascript
 const alertContext = useAlert();
 ...
 const someFunction = () => {
