@@ -5,7 +5,7 @@ import { Loader } from "../Loader/Loader";
 export interface ButtonProps extends Partial<JSX.IntrinsicElements["button"]> {
   label?: string;
   icon?: ReactNode;
-  iconPosition?: string;
+  iconPosition?: "left" | "right";
   filled?: boolean;
   loading?: boolean;
   rounded?: boolean;

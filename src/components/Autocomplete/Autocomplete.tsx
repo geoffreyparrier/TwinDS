@@ -3,7 +3,6 @@ import { twa } from "../../utils/twa";
 import { CommonFormInputProps } from "../Form/Form";
 import { InputGroup } from "../Form/InputGroup";
 import React, { useEffect, useState} from "react";
-import { tw } from "twind";
 
 type Props = {
   idList: string;
@@ -18,7 +17,7 @@ export const Autocomplete = ({ values, label, idList, idInput, placeholder = "",
     const [child, setChild] = useState(values);
     const [getList, setList] = useState(values);
     const [displayList, setDisplayList] = useState(false);
-      
+
     useEffect(()=>{
         setList(child.filter(item => item.includes(selectedOption)))
     },[selectedOption])
@@ -34,7 +33,7 @@ export const Autocomplete = ({ values, label, idList, idInput, placeholder = "",
     return (
     <InputGroup>
         <Label required={selectProps.required}>{label}</Label>
-        <input id={idInput} name={idInput} 
+        <input id={idInput} name={idInput}
         className={twa`bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main-500 focus:border-main-500 block w-full p-2.5`}
         placeholder={placeholder}
         onChange={e => setSelectedOption(e.target.value)}
