@@ -26,7 +26,7 @@ function ModalContent(props: PropsWithChildren<ModalContentProps>){
     const modalRef = useRef<HTMLDivElement>(null);
     useClickAway(modalRef, props.onClose);
     return (
-        <div className={twa`modal-container h-screen w-screen fixed top-0 left-0 flex bg-[#00000080]`}>
+        <div className={twa`modal-container z-10 h-screen w-screen fixed top-0 left-0 flex bg-[#00000080]`}>
             <div ref={modalRef} className={twa`modal relative m-auto bg-gray-200 rounded-md shadow-lg px-4 py-3`}>
                 <div onClick={props.onClose} className={twa`absolute -top-[1rem] -right-[1rem] bg-white hover:bg-gray-300 rounded-full shadow-md cursor-pointer p-1`}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24"
