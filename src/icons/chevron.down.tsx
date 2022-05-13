@@ -1,10 +1,11 @@
 import { twa } from "../utils/twa";
 
-export function ChevronDown() {
+export function ChevronDown({ ...props }: JSX.IntrinsicElements["svg"]) {
   return (
     <svg
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
-      className={twa`h-6 w-6`}
+      className={twa`${props.className} h-6 w-6`}
       fill="none"
       viewBox="0 0 24 24"
       stroke="currentColor"
