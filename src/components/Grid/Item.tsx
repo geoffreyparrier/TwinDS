@@ -14,7 +14,7 @@ type Variant = {
 };
 
 export const Item = ({ children, span }: PropsWithChildren<Props>) => {
-  const { lg, md, sm, xl, xxl } = useMemo<Variant>(() => {
+  const { lg, md, sm, xl, xxl } = useMemo<Required<Variant>>(() => {
     if (span)
       return {
         sm: span.sm ?? 1,
