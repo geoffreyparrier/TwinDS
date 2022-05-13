@@ -7,4 +7,5 @@ export { Label } from "./Label/Label";
 export { BackdropLoader, Loader } from "./Loader/Loader";
 export { RadioButton } from "./RadioButton/RadioButton";
 export { Select } from "./Select";
+export { Table } from "./Table";
 
