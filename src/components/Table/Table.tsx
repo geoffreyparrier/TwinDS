@@ -23,7 +23,7 @@ export const Table = ({ children }: Props) => {
   },[children])
   
   return (
-    <table className={twa`border-solid border-2 border-black`}>
+    <table className={twa`border-solid border-[0.5px] border-black`}>
         {thead}
         {tbody}
     </table>

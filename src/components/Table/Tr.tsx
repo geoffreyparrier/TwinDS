@@ -3,5 +3,5 @@ type Props = {
 };
 
 export const Tr = ({ children }: Props) => {
-    return <tr>{children}</tr>;
+    return <tr className="border-solid border-[0.5px] border-black">{children}</tr>;
 };
