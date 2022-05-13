@@ -1,4 +1,4 @@
-import {PropsWithChildren} from "react";
+import {createContext, PropsWithChildren, useContext, useState} from "react";
 import {twa} from "../../utils/twa";
 
 interface AlertProps{
@@ -58,5 +58,33 @@ function AlertIcon(props: AlertProps){
         <div className={twa`my-auto text-${props.type}-icon`}>
             {icon}
         </div>
+    );
+}
+
+interface AlertProviderValue{
+    fire: (newType: string) => void;
+    close: () => void;
+}
+
+const AlertContext = createContext<AlertProviderValue | undefined>(undefined);
+
+export const useAlert = () => useContext(AlertContext);
+
+export function AlertProvider(props:PropsWithChildren<{}>){
+    const [type, setType] = useState<string | null>(null);
+
+    const fire = (newType:string = 'info') => {
+        setType(newType);
+    };
+
+    const close = () => setType(null);
+
+    return (
+        <AlertContext.Provider value={{fire, close}}>
+            {props.children}
+            {type && (
+                <Alert type={type}/>
+            )}
+        </AlertContext.Provider>
     );
 }
