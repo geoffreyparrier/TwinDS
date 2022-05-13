@@ -12,4 +12,5 @@ export { Select } from "./Select";
 export { Table } from "./Table";
 export { Alert, useAlert, AlertProvider } from "./Alert/Alert";
 export { CheckBoxes } from "./CheckBoxes/Checkboxes";
+export { Autocomplete } from "./Autocomplete"
 
