@@ -1,5 +1,6 @@
-import {createContext, PropsWithChildren, useContext, useState} from "react";
+import {createContext, PropsWithChildren, useContext, useEffect, useState} from "react";
 import {twa} from "../../utils/twa";
+import {Progress} from "..";
 
 interface AlertProps{
     type: string,
@@ -66,25 +67,50 @@ interface AlertProviderValue{
     close: () => void;
 }
 
-const AlertContext = createContext<AlertProviderValue | undefined>(undefined);
+const AlertContext = createContext<AlertProviderValue>({fire: () => {}, close: () => {}});
 
 export const useAlert = () => useContext(AlertContext);
 
 export function AlertProvider(props:PropsWithChildren<{}>){
-    const [type, setType] = useState<string | null>(null);
+    const [alert, setAlert] = useState<PropsWithChildren<AlertProps> | null>(null);
+    const [progressValue, setProgressValue] = useState(0);
 
-    const fire = (newType:string = 'info') => {
-        setType(newType);
+    const fire = (newType:string = 'info', content: string = '') => {
+        setAlert({type: newType, children: content});
     };
 
-    const close = () => setType(null);
+    const close = () => {setAlert(null);};
+
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            setAlert(null);
+        },4000);
+        const interval = setInterval(() => {
+            setProgressValue(prev => prev + 1);
+        },4000 / 100);
+
+        if(!alert){
+            setProgressValue(0);
+            clearInterval(interval);
+            clearTimeout(timeout);
+        }
+
+        return () => {
+            clearInterval(interval);
+            clearTimeout(timeout);
+        }
+    },[alert]);
 
     return (
         <AlertContext.Provider value={{fire, close}}>
             {props.children}
-            {type && (
-                <Alert type={type}/>
+            {alert && (
+                <div className={twa`fixed top-0 left-50`}>
+                    <Alert type={alert.type}>{alert.children}</Alert>
+                    <Progress value={progressValue}/>
+                </div>
             )}
+            <Progress value={50} max={200}/>
         </AlertContext.Provider>
     );
 }

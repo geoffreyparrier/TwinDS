@@ -10,4 +10,5 @@ export { RadioButton } from "./RadioButton/RadioButton";
 export { Modal } from "./Modal/Modal";
 export { Select } from "./Select";
 export { Alert, useAlert, AlertProvider } from "./Alert/Alert";
+export { Progress } from './Progress/Progress';
 
