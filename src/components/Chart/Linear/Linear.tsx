@@ -5,7 +5,6 @@ type Props = {
   xAxis?: string;
   yAxis?: string;
   datas: number[];
-  showPoints?: boolean;
 };
 
 type Point = {
@@ -13,18 +12,13 @@ type Point = {
   index: number;
 };
 
-export const Linear = ({
-  xAxis,
-  yAxis,
-  datas: dataProps,
-  showPoints,
-}: Props) => {
+export const Linear = ({ xAxis, yAxis, datas: dataProps }: Props) => {
   const ref = useRef<HTMLCanvasElement>(null);
 
   // Take last 50 elements
   const datas = dataProps.slice(-50);
 
-  const padding = 50;
+  const padding = 40;
 
   const pixelRatio = useMemo(() => {
     return window.devicePixelRatio ?? 1;
@@ -50,14 +44,26 @@ export const Linear = ({
     const ctx = getContext()!;
     ctx.translate(padding, canvas.height - padding);
     ctx.scale(1, -1);
+
+    ctx.font = "14px Arial";
+    ctx.fillStyle = "#000";
+    ctx.transform(1, 0, 0, -1, 0, 0);
+    ctx.fillText(xAxis ?? "", (canvas.width - padding) / 2, padding / 2);
+    ctx.rotate(-(Math.PI / 2));
+    ctx.fillText(yAxis ?? "", (canvas.height - padding) / 2, -padding / 2);
+    ctx.rotate(Math.PI / 2);
+    ctx.transform(1, 0, 0, -1, 0, 0);
   }, []);
 
   useEffect(() => {
     drawGrid();
   }, [range]);
 
+  Array(5)
+    .fill(null)
+    .map(() => {});
+
   useEffect(() => {
-    // Clear canvas
     const ctx = getContext()!;
     ctx.clearRect(-3, -3, ctx.canvas.width, ctx.canvas.height);
     drawGrid();
