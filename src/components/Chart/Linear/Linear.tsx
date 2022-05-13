@@ -1,4 +1,4 @@
-import React, { Children, isValidElement, PropsWithChildren } from "react";
+import React from "react";
 
 type Props = {
   xAxis?: string;
