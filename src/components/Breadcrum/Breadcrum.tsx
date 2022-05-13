@@ -66,7 +66,7 @@ export function Breadcrum(props: Props) {
         return null;
       }) ?? []
     );
-  }, []);
+  }, [children]);
 
   function handleTabLinkClick(
     e: React.MouseEvent<HTMLDivElement>,
