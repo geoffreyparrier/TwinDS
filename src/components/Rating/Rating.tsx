@@ -1,6 +1,5 @@
 import {useEffect, useState} from "react";
 import {twa} from "../../utils/twa";
-import './Rating.css';
 
 interface RatingProps {
     max?: number;
@@ -27,15 +26,16 @@ const StarIcon = (props: IconProps) =>  (
 export function Rating(props: RatingProps){
     const {max = 5, value = 0, onChange = () => {}} = props;
     const [selectedItems, setSelectedItems] = useState<number>(value);
+    const [hoveredItems, setHoveredItems] = useState<number>(value);
 
     useEffect(() => {
         onChange(selectedItems);
     },[selectedItems]);
 
     return (
-        <div className={twa`flex gap-0.5 rating-container`}>
+        <div onMouseLeave={() => setHoveredItems(selectedItems)} className={twa`inline-flex gap-0.5 rating-container`}>
             {Array(max).fill(null).map((item,index) => {
-                const isFilled = selectedItems >= (index + 1);
+                const isFilled = hoveredItems >= (index + 1);
                 return (
                     <div
                         key={index}
@@ -43,7 +43,8 @@ export function Rating(props: RatingProps){
                             if(prev === index + 1) return 0;
                             return index + 1;
                         })}
-                        className={twa`cursor-pointer hover:scale-110 transition duration-150 rating`}
+                        onMouseEnter={() => setHoveredItems(index + 1)}
+                        className={twa`cursor-pointer hover:scale-110 transition duration-150 active:scale-100 rating`}
                     >
                         <StarIcon
                             filled={isFilled}
