@@ -1,19 +1,35 @@
 import {createContext, PropsWithChildren, useContext, useEffect, useState} from "react";
 import {twa} from "../../utils/twa";
-import {Progress} from "..";
+import {Progress} from "../Progress/Progress";
+import {Button} from '../Button/Button'
 
 export interface AlertProps{
     type: string,
-    classes?: string
+    classes?: string,
+    onClose?: () => void;
 }
 
 export function Alert(props: PropsWithChildren<AlertProps>){
+    const handleClose = () => {
+        if(props.onClose) props.onClose();
+    };
+
     return (
-        <div className={twa`flex gap-2 px-4 py-2 text-${props.type}-text bg-${props.type}-background rounded ${props.classes ?? ''}`}>
-            <AlertIcon type={props.type}/>
-            <div className={twa`my-auto`}>
-                {props.children}
+        <div className={twa`flex gap-2 justify-between px-4 py-2 text-${props.type}-text bg-${props.type}-background rounded ${props.classes ?? ''}`}>
+            <div className={twa`flex gap-2`}>
+                <AlertIcon type={props.type}/>
+                <div className={twa`my-auto`}>
+                    {props.children}
+                </div>
             </div>
+            {!!props.onClose && (
+                <Button onClick={handleClose} classes="p-0 border-none" icon={
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                         stroke="currentColor">
+                        <path d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                } />
+            )}
         </div>
     );
 }
