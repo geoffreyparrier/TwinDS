@@ -2,7 +2,7 @@ import {createContext, PropsWithChildren, useContext, useEffect, useState} from 
 import {twa} from "../../utils/twa";
 import {Progress} from "..";
 
-interface AlertProps{
+export interface AlertProps{
     type: string,
     classes?: string
 }
@@ -108,7 +108,7 @@ export function AlertProvider(props:PropsWithChildren<{}>){
             {alert && (
                 <div className={twa`fixed top-2 shadow-md left-1/2 min-w-[15rem] origin-center -translate-x-1/2`}>
                     <Alert type={alert.type} classes="w-full">{alert.children}</Alert>
-                    <Progress value={progressValue} height="0.4rem"/>
+                    <Progress value={progressValue} height="0.3rem"/>
                 </div>
             )}
         </AlertContext.Provider>
