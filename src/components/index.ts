@@ -9,4 +9,5 @@ export { BackdropLoader, Loader } from "./Loader/Loader";
 export { RadioButton } from "./RadioButton/RadioButton";
 export { Modal } from "./Modal/Modal";
 export { Select } from "./Select";
+export { Alert } from "./Alert/Alert";
 
