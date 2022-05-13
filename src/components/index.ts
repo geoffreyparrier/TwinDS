@@ -14,3 +14,4 @@ export { RadioButton } from "./RadioButton/RadioButton";
 export { Select } from "./Select";
 export { Progress } from './Progress/Progress';
 export { Rating } from './Rating/Rating';
+export { Breadcrum } from './Breadcrum/Breadcrum';
