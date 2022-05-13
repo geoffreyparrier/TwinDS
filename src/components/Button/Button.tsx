@@ -3,7 +3,7 @@ import {ReactNode} from "react";
 import { Loader } from "../Loader/Loader";
 
 export interface ButtonProps extends Partial<JSX.IntrinsicElements["button"]> {
-  label: string;
+  label?: string;
   icon?: ReactNode;
   iconPosition?: string;
   filled?: boolean;
@@ -24,12 +24,18 @@ export const Button = (props: ButtonProps) => {
             ) : props.icon}
         </>
     );
+
+    if(!props.icon && !props.label){
+        console.warn('label or icon property must be set in order to use the Button component properly.');
+        return null;
+    }
+
+    const padding = props.icon && !props.label ? 'p-3' : 'px-4 py-2';
+    const roundedClass = rounded ? 'rounded-full' : '';
     return (
-        <button {...other} className={twa`flex gap-2 content-around border ${colorClasses} focus:outline-none px-4 py-2 ${rounded ? 'rounded-full' : ''} duration-150 transition outline-none active:scale-95 disabled:active:scale-100 disabled:opacity-50 disabled:cursor-default ${classes}`}>
+        <button {...other} className={twa`flex gap-2 content-around border ${colorClasses} focus:outline-none ${padding} ${roundedClass} duration-150 transition outline-none active:scale-95 disabled:active:scale-100 disabled:opacity-50 disabled:cursor-default ${classes}`}>
             {(!props.iconPosition || props.iconPosition === 'left') && iconElement}
-            <div className={twa``}>
-                {props.label}
-            </div>
+            {props.label && (<div>{props.label}</div>)}
             {(props.iconPosition && props.iconPosition === 'right') && iconElement}
         </button>
     );
