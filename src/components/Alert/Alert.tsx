@@ -106,9 +106,9 @@ export function AlertProvider(props:PropsWithChildren<{}>){
         <AlertContext.Provider value={{fire, close}}>
             {props.children}
             {alert && (
-                <div className={twa`fixed top-0 left-50`}>
-                    <Alert type={alert.type}>{alert.children}</Alert>
-                    <Progress value={progressValue}/>
+                <div className={twa`fixed top-2 shadow-md left-1/2 min-w-[15rem] origin-center -translate-x-1/2`}>
+                    <Alert type={alert.type} classes="w-full">{alert.children}</Alert>
+                    <Progress value={progressValue} height="0.4rem"/>
                 </div>
             )}
         </AlertContext.Provider>
