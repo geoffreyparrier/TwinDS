@@ -1,5 +1,4 @@
 import { Autocomplete as AutocompleteInput } from "./Autocomplete";
-import { Option } from "./Option";
-import { Group } from "./Group";
+import { Li } from "./Li";
 
-export const Autocomplete = Object.assign(AutocompleteInput, { Option, Group });
+export const Autocomplete = Object.assign(AutocompleteInput, { Li });
