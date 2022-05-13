@@ -1,0 +1,9 @@
+.modal{
+    animation: linear pop 0.15s;
+}
+
+@keyframes pop {
+    0%{transform: scale(0);}
+    80%{transform: scale(1.1);}
+    100%{transform: scale(1);}
+}
