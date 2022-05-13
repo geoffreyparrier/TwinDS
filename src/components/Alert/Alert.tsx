@@ -63,7 +63,7 @@ function AlertIcon(props: AlertProps){
 }
 
 interface AlertProviderValue{
-    fire: (newType: string) => void;
+    fire: (newType?: string, content?: string) => void;
     close: () => void;
 }
 
@@ -77,6 +77,7 @@ export function AlertProvider(props:PropsWithChildren<{}>){
 
     const fire = (newType:string = 'info', content: string = '') => {
         setAlert({type: newType, children: content});
+        setProgressValue(0);
     };
 
     const close = () => {setAlert(null);};
@@ -110,7 +111,6 @@ export function AlertProvider(props:PropsWithChildren<{}>){
                     <Progress value={progressValue}/>
                 </div>
             )}
-            <Progress value={50} max={200}/>
         </AlertContext.Provider>
     );
 }
