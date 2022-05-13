@@ -1,1 +1,8 @@
-export const Chart = Object.assign({}, {});
+import { Linear } from "./Linear/Linear";
+
+export const Chart = Object.assign(
+  {},
+  {
+    Linear,
+  }
+);
