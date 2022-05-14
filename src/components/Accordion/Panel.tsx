@@ -7,7 +7,7 @@ type Props = {
   title: string;
 };
 
-export const Pannel = ({ children, title }: PropsWithChildren<Props>) => {
+export const Panel = ({ children, title }: PropsWithChildren<Props>) => {
   const [isOpen, setIsOpen] = useState(false);
   const bodyRef = useRef<HTMLDivElement>(null);
 

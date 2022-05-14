@@ -1,5 +1,4 @@
-import { PropsWithChildren, useEffect, useMemo } from "react";
-import { tw } from "twind";
+import { PropsWithChildren, useMemo } from "react";
 import { twa } from "../../utils/twa";
 
 type Props = {
