@@ -125,7 +125,11 @@ Property | Type | Required | Description
 ...
 <Breadcrum 
     action="/path/to/submit" 
-    buttons={{ previous : <>Custom Previous</>, ...}}
+    buttons={{
+        previous: <Button type="button" label="Previous"/>,
+        next: <Button type="button" label="Next"/>,
+        last:<Button label="Confirm" disabled={submitting} loading={submitting}/>
+    }}
     colors={{ main : "#fefefe", ...}}
     encType="multipart/form-data"
     onSubmit={(e) => { e.preventDefault(); alert('submitted'); }}

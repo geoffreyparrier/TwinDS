@@ -17,9 +17,9 @@ type Colors = {
 };
 
 type Buttons = {
-  previous: ReactNode;
-  next: ReactNode;
-  last: ReactNode;
+  previous?: ReactNode;
+  next?: ReactNode;
+  last?: ReactNode;
 };
 
 type Props = {
