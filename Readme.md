@@ -2,7 +2,7 @@
 - `npm run build`
 - `npm link`
 
-# API
+# API Documentation
 
 ### Accordion
 
@@ -26,13 +26,13 @@ Context allowing to fire global alerts.
 Usage : 
 ```javascript
 const alertContext = useAlert();
-...
+... //other component logic
 const someFunction = () => {
-    ...
+    ... //other function logic
     alertContext.fire('success', 'Operation done with success !')
-    ...
+    ... //other function logic
 }
-...
+... //other component logic
 ``` 
 <hr/>
 
@@ -113,10 +113,45 @@ Property | Type | Required | Description
 **loading** | `boolean` | no | If button is loading
 **rounded** | `boolean` | no | If button's angles are rounded
 
+- Usage Exemple : 
+```jsx
+<Button filled label="Test button" disabled icon={<StarIcon/>} iconPosition="right"/>
+```
+<hr/>
 
 ### ButtonGroup
-### Chart
-### Checkboxes
+Property | Type | Required | Description
+--- | --- | --- | ---
+**buttons** | `Array<ButtonProps>` | yes | All the buttons to be displayed in group
+
+- Usage exemple :
+```jsx
+<ButtonGroup 
+    buttons={[
+        {label: 'btn1', ...},
+        {label: 'btn2', ...},
+        {label: 'btn3', ...},
+    ]}
+/>
+```
+
+<hr/>
+
+## Charts
+### Chart.Linear
+Property | Type | Required | Description
+--- | --- | --- | ---
+**datas** | `number[]` | yes | Datas to be displayed and linked
+**xAxis** | `string` | no | Label for X's axis
+**yAxis** | `string` | no | Label for Y's axis
+
+- Usage exemple : 
+
+```jsx
+<Chart.Linear datas={[1,100,152,89,96,120]} xAxis="Temps" yAxis="Montant"/>
+```
+
+### Checkbox
 ### From
 ### Grid
 ### Label

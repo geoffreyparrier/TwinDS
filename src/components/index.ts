@@ -8,7 +8,7 @@ export { Breadcrum } from "./Breadcrum";
 export { Button } from "./Button/Button";
 export { ButtonGroup } from "./ButtonGroup/ButtonGroup";
 export { Chart } from "./Chart";
-export { CheckBoxes } from "./CheckBoxes/Checkboxes";
+export { CheckBox } from "./CheckBox/Checkbox";
 export { Grid } from "./Grid";
 export { Label } from "./Label/Label";
 export { BackdropLoader, Loader } from "./Loader/Loader";
