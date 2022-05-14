@@ -11,9 +11,9 @@ export function Loader({size = 1, borderSize = 2}: LoaderProps){
     );
 }
 
-export function BackdropLoader({size = 3, borderSize = 3}: LoaderProps){
+export function BackdropLoader({size = 3, borderSize = 4}: LoaderProps){
     return (
-        <div className={twa`w-screen h-screen fixed top-0 left-0 flex justify-center items-center bg-[#00000080]`}>
+        <div className={twa`w-screen h-screen z-10 fixed top-0 left-0 flex justify-center items-center bg-[#00000080]`}>
             <Loader size={size} borderSize={borderSize}/>
         </div>
     );

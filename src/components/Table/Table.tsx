@@ -20,8 +20,8 @@ export const Table = ({ children }: Props) => {
         }
       }
     });
-  },[children])
-  
+  },[children]);
+
   return (
     <table className={twa`border-solid border-[0.5px] border-black`}>
         {thead}

@@ -1,4 +1,4 @@
 import { Accordion as Accord } from "./Accordion";
-import { Pannel } from "./Pannel";
+import { Panel } from "./Panel";
 
-export const Accordion = Object.assign(Accord, { Pannel });
+export const Accordion = Object.assign(Accord, { Panel });
