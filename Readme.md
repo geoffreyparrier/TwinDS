@@ -329,44 +329,102 @@ Property | Type | Required | Description
 ### Rating
 Property | Type | Required | Description
 --- | --- | --- | ---
-**p** | `string` | no | d
+**max** | `string` | no | Total number of stars (default `5`)
+**value** | `string` | no | Actual number of selected stars (default `0`)
+**onChange** | `callback` | no | Callback function triggered when rating's value changes.
 
 - Usage exemple :
 
 ```jsx
+<Rating value={2} onChange={(value) => {console.log(value)}}/>
 ```
 <hr/>
 
-### Select
+## Select
+
 Property | Type | Required | Description
 --- | --- | --- | ---
-**p** | `string` | no | d
+**label** | `string` | yes | Displayed select's label
+
+### Select.Option
+
+Property | Type | Required | Description
+--- | --- | --- | ---
+**value** | `string` | yes | Option's value
+
+### Select.Group
+
+Property | Type | Required | Description
+--- | --- | --- | ---
+**label** | `string` | yes | Group's label
 
 - Usage exemple :
 
 ```jsx
+<Select label="My select" id="my-select">
+    <Select.Group label="sure-values">
+        <Select.Option value="yes">Yes</Select.Option>
+        <Select.Option value="no">No</Select.Option>
+    </Select.Group>
+    <Select.Option value="maybe">Maybe</Select.Option>
+</Select>
 ```
 <hr/>
 
 ### SpeedDial
+
 Property | Type | Required | Description
 --- | --- | --- | ---
-**p** | `string` | no | d
+**children** | `Required<React.ReactNode>` | yes | Required content
+
+### SpeedDial.Item
+
+Property | Type | Required | Description
+--- | --- | --- | ---
+**icon** | `React.ReactNode` | no | The html icon
+**onClick** | `callback` | no | Function triggered on item click
 
 - Usage exemple :
 
 ```jsx
+<SpeedDial>
+    <SpeedDial.Item icon={<StarIcon/>} onClick={() => ...}/>
+    <SpeedDial.Item icon={<HomeIcon/>} onClick={() => ...}/>
+    <SpeedDial.Item icon={<BookIcon/>} onClick={() => ...}/>
+</SpeedDial>
 ```
 <hr/>
 
 ### Table
-Property | Type | Required | Description
---- | --- | --- | ---
-**p** | `string` | no | d
 
-- Usage exemple :
+Sub components : 
+- `Table.Thead`, `Table.Thead.Tr`, `Table.Thead.Tr.Th`, `Table.Thead.Tr.Td`
+- `Table.Tbody`, `Table.Tbody.Tr`, `Table.Tbody.Tr.Th`, `Table.Tbody.Tr.Td`
+
+Usage exemple :
 
 ```jsx
+<Table>
+    <Table.Thead>
+        <Table.Thead.Tr>
+            <Table.Thead.Tr.Th>ID</Table.Thead.Tr.Th>
+            <Table.Thead.Tr.Th>Label</Table.Thead.Tr.Th>
+            <Table.Thead.Tr.Th>Description</Table.Thead.Tr.Th>
+        </Table.Thead.Tr>
+    </Table.Thead>
+    <Table.Tbody>
+        <Table.Tbody.Tr>
+            <Table.Tbody.Tr.Td>1</Table.Tbody.Tr.Td>
+            <Table.Tbody.Tr.Td>label 1</Table.Tbody.Tr.Td>
+            <Table.Tbody.Tr.Td>description 1</Table.Tbody.Tr.Td>
+        </Table.Tbody.Tr>
+        <Table.Tbody.Tr>
+            <Table.Tbody.Tr.Td>2</Table.Tbody.Tr.Td>
+            <Table.Tbody.Tr.Td>label 2</Table.Tbody.Tr.Td>
+            <Table.Tbody.Tr.Td>description 2</Table.Tbody.Tr.Td>
+        </Table.Tbody.Tr>
+    </Table.Tbody>
+</Table>
 ```
 <hr/>
 

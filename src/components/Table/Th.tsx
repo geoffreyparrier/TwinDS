@@ -1,9 +1,6 @@
 import { twa } from "../../utils/twa";
+import {PropsWithChildren} from "react";
 
-export interface Props {
-    value: string;
-}
-
-export const Th = (props: Props) => {
-    return <th className={twa`text-main-700  p-2.5`}>{props.value}</th>;
+export const Th = (props: PropsWithChildren<{}>) => {
+    return <th className={twa`text-main-700  p-2.5`}>{props.children}</th>;
 };
