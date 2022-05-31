@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { twa } from '../../utils/twa';
+import twa from '../../utils/twa';
 
 export interface RadioButtonProps extends Partial<JSX.IntrinsicElements['input']>{
   label: string;

@@ -1,7 +1,7 @@
 import React from 'react';
-import { twa } from '../utils/twa';
+import twa from '../utils/twa';
 
-export function PlusIcon() {
+export default function PlusIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

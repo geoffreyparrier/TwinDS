@@ -1,5 +1,5 @@
 import { PropsWithChildren, useMemo } from 'react';
-import { twa } from '../../utils/twa';
+import twa from '../../utils/twa';
 
 type Props = {
   sm?: number;

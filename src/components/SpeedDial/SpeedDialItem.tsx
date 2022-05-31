@@ -1,5 +1,5 @@
 import React from 'react';
-import { PlusIcon } from '../../icons/plus.icon';
+import PlusIcon from '../../icons/plus.icon';
 import { Button } from '../Button/Button';
 
 type Props = {

@@ -1,7 +1,7 @@
 import {
   PropsWithChildren, useEffect, useRef, useState,
 } from 'react';
-import { twa } from '../../utils/twa';
+import twa from '../../utils/twa';
 import { useClickAway } from '../../utils/hooks/useClickAway';
 import './Modal.css';
 

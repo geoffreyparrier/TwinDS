@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { PlusIcon } from '../../icons/plus.icon';
-import { twa } from '../../utils/twa';
+import PlusIcon from '../../icons/plus.icon';
+import twa from '../../utils/twa';
 import { Button } from '../Button/Button';
 
 type Props = {

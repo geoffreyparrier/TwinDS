@@ -1,7 +1,7 @@
 import {
   useCallback, useEffect, useMemo, useRef,
 } from 'react';
-import { twa } from '../../../utils/twa';
+import twa from '../../../utils/twa';
 
 type Props = {
   xAxis?: string;

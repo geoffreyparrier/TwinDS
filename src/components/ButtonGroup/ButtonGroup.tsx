@@ -1,5 +1,5 @@
 import { Button, ButtonProps } from '../Button/Button';
-import { twa } from '../../utils/twa';
+import twa from '../../utils/twa';
 
 export interface ButtonGroupProps {
   buttons: Array<ButtonProps>;

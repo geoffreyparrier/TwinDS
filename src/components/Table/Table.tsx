@@ -2,7 +2,7 @@ import {
   Children, isValidElement, useEffect, useState,
 } from 'react';
 import { Tbody, Thead } from '.';
-import { twa } from '../../utils/twa';
+import twa from '../../utils/twa';
 
 type Props = {
   children: React.ReactNode;

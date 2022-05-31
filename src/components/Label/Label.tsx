@@ -1,7 +1,7 @@
 import { content } from '@twind/content';
 import clsx from 'clsx';
 import { PropsWithChildren } from 'react';
-import { twa } from '../../utils/twa';
+import twa from '../../utils/twa';
 
 type Props = {
   required?: boolean;

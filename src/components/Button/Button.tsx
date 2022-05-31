@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { twa } from '../../utils/twa';
+import twa from '../../utils/twa';
 import { Loader } from '../Loader/Loader';
 
 export interface ButtonProps extends Partial<JSX.IntrinsicElements['button']> {

@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { PropsWithChildren, useRef, useState } from 'react';
-import { ChevronDown } from '../../icons/chevron.down';
-import { twa } from '../../utils/twa';
+import ChevronDown from '../../icons/chevron.down';
+import twa from '../../utils/twa';
 
 type Props = {
   title: string;

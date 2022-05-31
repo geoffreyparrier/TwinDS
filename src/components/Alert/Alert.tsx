@@ -5,7 +5,7 @@ import {
   useEffect,
   useState,
 } from 'react';
-import { twa } from '../../utils/twa';
+import twa from '../../utils/twa';
 import { Progress } from '../Progress/Progress';
 import { Button } from '../Button/Button';
 

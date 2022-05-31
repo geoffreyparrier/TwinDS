@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react';
-import { twa } from '../../utils/twa';
+import twa from '../../utils/twa';
 
 export function Accordion({ children }: PropsWithChildren<{}>) {
   return (

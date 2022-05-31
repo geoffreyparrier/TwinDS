@@ -1,5 +1,5 @@
 import './Progress.css';
-import { twa } from '../../utils/twa';
+import twa from '../../utils/twa';
 
 interface ProgressProps{
     max?:number|string;

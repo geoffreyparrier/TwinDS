@@ -1,4 +1,4 @@
-import { twa } from '../../utils/twa';
+import twa from '../../utils/twa';
 
 export interface LoaderProps {
     size?: number;

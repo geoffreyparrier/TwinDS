@@ -1,6 +1,6 @@
-import { twa } from '../utils/twa';
+import twa from '../utils/twa';
 
-export function ChevronDown({ ...props }: JSX.IntrinsicElements['svg']) {
+export default function ChevronDown({ ...props }: JSX.IntrinsicElements['svg']) {
   return (
     <svg
       {...props}

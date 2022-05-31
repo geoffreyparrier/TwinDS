@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { twa } from '../../utils/twa';
+import twa from '../../utils/twa';
 
 type Props = {
   src: string;

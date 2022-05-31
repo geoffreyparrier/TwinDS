@@ -1,7 +1,7 @@
 import React, {
   Children, isValidElement, useEffect, useState,
 } from 'react';
-import { twa } from '../../utils/twa';
+import twa from '../../utils/twa';
 
 type Props = {
     children: Required<React.ReactNode>;
