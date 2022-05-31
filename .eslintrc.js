@@ -4,11 +4,13 @@ module.exports = {
     es2021: true,
   },
   extends: [
-    'plugin:react/recommended',
     'airbnb',
+    "plugin:@typescript-eslint/recommended",
     "plugin:import/errors",
     "plugin:import/warnings",
     "plugin:import/typescript",
+    'plugin:react/recommended',
+    "plugin:react/jsx-runtime",
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {

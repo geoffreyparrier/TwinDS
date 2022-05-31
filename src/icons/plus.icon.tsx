@@ -1,4 +1,3 @@
-import React from 'react';
 import twa from '../utils/twa';
 
 export default function PlusIcon() {
