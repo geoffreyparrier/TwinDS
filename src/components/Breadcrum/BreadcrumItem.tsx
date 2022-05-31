@@ -1,5 +1,5 @@
-import { PropsWithChildren } from "react";
+import { PropsWithChildren } from 'react';
 
-export const BreadcrumItem = ({ children }: PropsWithChildren<{}>) => {
+export function BreadcrumItem({ children }: PropsWithChildren<{}>) {
   return <>{children}</>;
-};
+}

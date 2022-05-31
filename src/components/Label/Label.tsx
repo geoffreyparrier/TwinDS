@@ -1,21 +1,21 @@
-import { content } from "@twind/content";
-import clsx from "clsx";
-import { PropsWithChildren } from "react";
-import { twa } from "../../utils/twa";
+import { content } from '@twind/content';
+import clsx from 'clsx';
+import { PropsWithChildren } from 'react';
+import { twa } from '../../utils/twa';
 
 type Props = {
   required?: boolean;
 };
 
-export const Label = ({ children, required }: PropsWithChildren<Props>) => {
+export function Label({ children, required }: PropsWithChildren<Props>) {
   return (
     <div
       className={clsx(
         twa`font-semibold`,
-        required && twa`after::text-red-500 after::${content('"*"')}`
+        required && twa`after::text-red-500 after::${content('"*"')}`,
       )}
     >
       {children}
     </div>
   );
-};
+}

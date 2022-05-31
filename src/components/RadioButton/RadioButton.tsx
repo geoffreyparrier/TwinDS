@@ -1,14 +1,14 @@
-import {useEffect, useState} from "react";
-import { twa } from "../../utils/twa";
+import { useEffect, useState } from 'react';
+import { twa } from '../../utils/twa';
 
-export interface RadioButtonProps extends Partial<JSX.IntrinsicElements["input"]>{
+export interface RadioButtonProps extends Partial<JSX.IntrinsicElements['input']>{
   label: string;
   selected: boolean;
   onChange: (value: any) => void;
 }
 
-export const RadioButton = (props: RadioButtonProps) => {
-    const {onChange, ...other} = props;
+export function RadioButton(props: RadioButtonProps) {
+  const { onChange, ...other } = props;
   const [selected, setSelected] = useState(props.selected);
 
   function onSelectClick() {
@@ -16,8 +16,8 @@ export const RadioButton = (props: RadioButtonProps) => {
   }
 
   useEffect(() => {
-      onChange(selected);
-  },[selected]);
+    onChange(selected);
+  }, [selected]);
 
   return (
     <div>
@@ -33,4 +33,4 @@ export const RadioButton = (props: RadioButtonProps) => {
       </label>
     </div>
   );
-};
+}

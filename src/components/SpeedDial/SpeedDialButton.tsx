@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { PlusIcon } from "../../icons/plus.icon";
-import { twa } from "../../utils/twa";
-import { Button } from "../Button/Button";
+import React, { useState } from 'react';
+import { PlusIcon } from '../../icons/plus.icon';
+import { twa } from '../../utils/twa';
+import { Button } from '../Button/Button';
 
 type Props = {
   children: Required<React.ReactNode>;
 };
-export const SpeedDialButton = ({ children }: Props) => {
+export function SpeedDialButton({ children }: Props) {
   const [opened, setOpened] = useState(false);
 
   return (
@@ -14,15 +14,15 @@ export const SpeedDialButton = ({ children }: Props) => {
       <Button
         onClick={() => setOpened(!opened)}
         icon={<PlusIcon />}
-        className={`relative transition-all hover:rotate-45 rotate-0`}
+        className="relative transition-all hover:rotate-45 rotate-0"
       />
       <div
         className={twa`${
-          opened ? "flex" : "hidden"
+          opened ? 'flex' : 'hidden'
         } absolute mt-4 bottom-16 right-0 flex-col space-y-2`}
       >
         {children}
       </div>
     </div>
   );
-};
+}

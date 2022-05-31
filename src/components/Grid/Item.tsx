@@ -1,5 +1,5 @@
-import { PropsWithChildren, useMemo } from "react";
-import { twa } from "../../utils/twa";
+import { PropsWithChildren, useMemo } from 'react';
+import { twa } from '../../utils/twa';
 
 type Props = {
   span?: Variant;
@@ -13,9 +13,11 @@ type Variant = {
   xxl?: number;
 };
 
-export const Item = ({ children, span }: PropsWithChildren<Props>) => {
-  const { lg, md, sm, xl, xxl } = useMemo<Required<Variant>>(() => {
-    if (span)
+export function Item({ children, span }: PropsWithChildren<Props>) {
+  const {
+    lg, md, sm, xl, xxl,
+  } = useMemo<Required<Variant>>(() => {
+    if (span) {
       return {
         sm: span.sm ?? 1,
         md: span.md ?? 1,
@@ -23,7 +25,10 @@ export const Item = ({ children, span }: PropsWithChildren<Props>) => {
         xl: span.xl ?? 1,
         xxl: span.xxl ?? 1,
       };
-    return { lg: 1, md: 1, sm: 1, xl: 1, xxl: 1 };
+    }
+    return {
+      lg: 1, md: 1, sm: 1, xl: 1, xxl: 1,
+    };
   }, [span]);
   return (
     <div
@@ -32,4 +37,4 @@ export const Item = ({ children, span }: PropsWithChildren<Props>) => {
       {children}
     </div>
   );
-};
+}

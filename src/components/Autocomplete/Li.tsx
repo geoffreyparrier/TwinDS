@@ -1,8 +1,7 @@
 type Props = {
     value: string;
   };
-  
-  export const Li = ({ value }: Props) => {
-    return <li>{value}</li>;
-  };
-  
+
+export function Li({ value }: Props) {
+  return <li>{value}</li>;
+}

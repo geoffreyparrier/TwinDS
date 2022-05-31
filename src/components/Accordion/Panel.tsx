@@ -1,13 +1,13 @@
-import clsx from "clsx";
-import { PropsWithChildren, useRef, useState } from "react";
-import { ChevronDown } from "../../icons/chevron.down";
-import { twa } from "../../utils/twa";
+import clsx from 'clsx';
+import { PropsWithChildren, useRef, useState } from 'react';
+import { ChevronDown } from '../../icons/chevron.down';
+import { twa } from '../../utils/twa';
 
 type Props = {
   title: string;
 };
 
-export const Panel = ({ children, title }: PropsWithChildren<Props>) => {
+export function Panel({ children, title }: PropsWithChildren<Props>) {
   const [isOpen, setIsOpen] = useState(false);
   const bodyRef = useRef<HTMLDivElement>(null);
 
@@ -17,8 +17,8 @@ export const Panel = ({ children, title }: PropsWithChildren<Props>) => {
         <span className={twa`text-xl`}>{title}</span>
         <ChevronDown
           className={clsx(
-            `${!isOpen ? "rotate-180" : "rotate-0"}`,
-            twa`transition-all duration-300`
+            `${!isOpen ? 'rotate-180' : 'rotate-0'}`,
+            twa`transition-all duration-300`,
           )}
         />
       </div>
@@ -34,4 +34,4 @@ export const Panel = ({ children, title }: PropsWithChildren<Props>) => {
       </div>
     </div>
   );
-};
+}

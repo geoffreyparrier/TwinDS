@@ -4,10 +4,10 @@ import {
   useContext,
   useEffect,
   useState,
-} from "react";
-import { twa } from "../../utils/twa";
-import { Progress } from "../Progress/Progress";
-import { Button } from "../Button/Button";
+} from 'react';
+import { twa } from '../../utils/twa';
+import { Progress } from '../Progress/Progress';
+import { Button } from '../Button/Button';
 
 export interface AlertProps {
   type: string;
@@ -24,7 +24,7 @@ export function Alert(props: PropsWithChildren<AlertProps>) {
     <div
       className={twa`flex gap-2 justify-between px-4 py-2 text-${
         props.type
-      }-text bg-${props.type}-background rounded ${props.classes ?? ""}`}
+      }-text bg-${props.type}-background rounded ${props.classes ?? ''}`}
     >
       <div className={twa`flex gap-2`}>
         <AlertIcon type={props.type} />
@@ -34,7 +34,7 @@ export function Alert(props: PropsWithChildren<AlertProps>) {
         <Button
           onClick={handleClose}
           className="p-0 border-none"
-          icon={
+          icon={(
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -44,7 +44,7 @@ export function Alert(props: PropsWithChildren<AlertProps>) {
             >
               <path d="M6 18L18 6M6 6l12 12" />
             </svg>
-          }
+          )}
         />
       )}
     </div>
@@ -69,7 +69,7 @@ function AlertIcon(props: AlertProps) {
     </svg>
   );
   switch (props.type) {
-    case "warning":
+    case 'warning':
       icon = (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -87,7 +87,7 @@ function AlertIcon(props: AlertProps) {
         </svg>
       );
       break;
-    case "error":
+    case 'error':
       icon = (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -105,7 +105,7 @@ function AlertIcon(props: AlertProps) {
         </svg>
       );
       break;
-    case "success":
+    case 'success':
       icon = (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -141,11 +141,11 @@ export const useAlert = () => useContext(AlertContext);
 
 export function AlertProvider(props: PropsWithChildren<{}>) {
   const [alert, setAlert] = useState<PropsWithChildren<AlertProps> | null>(
-    null
+    null,
   );
   const [progressValue, setProgressValue] = useState(0);
 
-  const fire = (newType: string = "info", content: string = "") => {
+  const fire = (newType: string = 'info', content: string = '') => {
     setAlert({ type: newType, children: content });
     setProgressValue(0);
   };

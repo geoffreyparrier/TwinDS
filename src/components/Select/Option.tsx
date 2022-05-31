@@ -3,6 +3,6 @@ type Props = {
   children: Required<React.ReactNode>;
 };
 
-export const Option = ({ children, value }: Props) => {
+export function Option({ children, value }: Props) {
   return <option value={value}>{children}</option>;
-};
+}

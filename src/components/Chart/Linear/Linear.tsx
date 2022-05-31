@@ -1,5 +1,7 @@
-import { useCallback, useEffect, useMemo, useRef } from "react";
-import { twa } from "../../../utils/twa";
+import {
+  useCallback, useEffect, useMemo, useRef,
+} from 'react';
+import { twa } from '../../../utils/twa';
 
 type Props = {
   xAxis?: string;
@@ -12,7 +14,7 @@ type Point = {
   index: number;
 };
 
-export const Linear = ({ xAxis, yAxis, datas: dataProps }: Props) => {
+export function Linear({ xAxis, yAxis, datas: dataProps }: Props) {
   const ref = useRef<HTMLCanvasElement>(null);
 
   // Take last 50 elements
@@ -20,9 +22,7 @@ export const Linear = ({ xAxis, yAxis, datas: dataProps }: Props) => {
 
   const padding = 40;
 
-  const pixelRatio = useMemo(() => {
-    return window.devicePixelRatio ?? 1;
-  }, []);
+  const pixelRatio = useMemo(() => window.devicePixelRatio ?? 1, []);
 
   const range = useMemo<{ max: number; min: number }>(() => {
     const max = Math.max(...datas);
@@ -37,7 +37,7 @@ export const Linear = ({ xAxis, yAxis, datas: dataProps }: Props) => {
 
   useEffect(() => {
     const canvas = getCanvas()!;
-    var rect = canvas.getBoundingClientRect();
+    const rect = canvas.getBoundingClientRect();
     canvas.width = rect.width * pixelRatio;
     canvas.height = rect.height * pixelRatio;
 
@@ -45,12 +45,12 @@ export const Linear = ({ xAxis, yAxis, datas: dataProps }: Props) => {
     ctx.translate(padding, canvas.height - padding);
     ctx.scale(1, -1);
 
-    ctx.font = "14px Arial";
-    ctx.fillStyle = "#000";
+    ctx.font = '14px Arial';
+    ctx.fillStyle = '#000';
     ctx.transform(1, 0, 0, -1, 0, 0);
-    ctx.fillText(xAxis ?? "", (canvas.width - padding) / 2, padding / 2);
+    ctx.fillText(xAxis ?? '', (canvas.width - padding) / 2, padding / 2);
     ctx.rotate(-(Math.PI / 2));
-    ctx.fillText(yAxis ?? "", (canvas.height - padding) / 2, -padding / 2);
+    ctx.fillText(yAxis ?? '', (canvas.height - padding) / 2, -padding / 2);
     ctx.rotate(Math.PI / 2);
     ctx.transform(1, 0, 0, -1, 0, 0);
   }, []);
@@ -73,7 +73,7 @@ export const Linear = ({ xAxis, yAxis, datas: dataProps }: Props) => {
   const getContext = useCallback<() => CanvasRenderingContext2D | null>(() => {
     const canvas = getCanvas();
     if (!canvas) return null;
-    const ctx = canvas.getContext("2d");
+    const ctx = canvas.getContext('2d');
     if (!ctx) return null;
     return ctx;
   }, []);
@@ -83,7 +83,7 @@ export const Linear = ({ xAxis, yAxis, datas: dataProps }: Props) => {
 
     const ctx = getContext()!;
 
-    let spacing = (canvas.width - padding) / datas.length;
+    const spacing = (canvas.width - padding) / datas.length;
 
     // Draw Vertical grid lines
     for (let i = 0; i < datas.length; i++) {
@@ -92,7 +92,7 @@ export const Linear = ({ xAxis, yAxis, datas: dataProps }: Props) => {
       ctx.moveTo(x, 0);
       ctx.lineTo(x, canvas.height);
       ctx.lineWidth = 1 / (pixelRatio * 1.5);
-      ctx.strokeStyle = "lightgray";
+      ctx.strokeStyle = 'lightgray';
       ctx.stroke();
     }
 
@@ -103,7 +103,7 @@ export const Linear = ({ xAxis, yAxis, datas: dataProps }: Props) => {
       ctx.moveTo(0, i);
       ctx.lineTo(canvas.width, i);
       ctx.lineWidth = 1 / (pixelRatio * 1.5);
-      ctx.strokeStyle = "lightgray";
+      ctx.strokeStyle = 'lightgray';
       ctx.stroke();
     }
   }
@@ -117,7 +117,7 @@ export const Linear = ({ xAxis, yAxis, datas: dataProps }: Props) => {
             data: self[index - 1],
             index: index - 1,
           },
-          { data, index }
+          { data, index },
         );
       }
     });
@@ -128,14 +128,14 @@ export const Linear = ({ xAxis, yAxis, datas: dataProps }: Props) => {
     ctx.beginPath();
     ctx.moveTo(
       resolveXPositionBasedOnIndex(p1.index),
-      resolveYPosition(p1.data)
+      resolveYPosition(p1.data),
     );
     ctx.lineTo(
       resolveXPositionBasedOnIndex(p2.index),
-      resolveYPosition(p2.data)
+      resolveYPosition(p2.data),
     );
     ctx.lineWidth = 1 / (pixelRatio * 1.5);
-    ctx.strokeStyle = "black";
+    ctx.strokeStyle = 'black';
     ctx.stroke();
   }
 
@@ -146,10 +146,9 @@ export const Linear = ({ xAxis, yAxis, datas: dataProps }: Props) => {
 
   function resolveYPosition(data: number) {
     const canvas = getCanvas()!;
-    const y =
-      canvas.height -
-      ((data - range.min) / (range.max - range.min)) *
-        (canvas.height - padding * 2);
+    const y = canvas.height
+      - ((data - range.min) / (range.max - range.min))
+        * (canvas.height - padding * 2);
     return canvas.height - y;
   }
 
@@ -157,16 +156,16 @@ export const Linear = ({ xAxis, yAxis, datas: dataProps }: Props) => {
     const ctx = getContext()!;
     ctx.beginPath();
     ctx.arc(x, y, 3, 0, 2 * Math.PI, true);
-    ctx.fillStyle = "red";
+    ctx.fillStyle = 'red';
     ctx.fill();
   }
 
   return (
     <canvas
       ref={ref}
-      width={"150"}
-      height={"100"}
+      width="150"
+      height="100"
       className={twa`border border-main-500`}
     />
   );
-};
+}

@@ -1,5 +1,5 @@
-import { SpeedDialButton } from "./SpeedDialButton";
-import { SpeedDialItem } from "./SpeedDialItem";
+import { SpeedDialButton } from './SpeedDialButton';
+import { SpeedDialItem } from './SpeedDialItem';
 
 export type SeedDialCommonProps = {};
 

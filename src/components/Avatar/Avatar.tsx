@@ -1,30 +1,30 @@
-import clsx from "clsx";
-import { twa } from "../../utils/twa";
+import clsx from 'clsx';
+import { twa } from '../../utils/twa';
 
 type Props = {
   src: string;
-  size?: "small" | "medium" | "large";
+  size?: 'small' | 'medium' | 'large';
   shadow?: boolean;
   outline?: boolean;
 };
 
-export const Avatar = ({
+export function Avatar({
   src,
-  size = "medium",
+  size = 'medium',
   shadow = false,
   outline,
-}: Props) => {
+}: Props) {
   return (
     <img
       src={src}
       className={clsx(
         twa`rounded-full h-12 w-12 object-cover`,
-        size === "large" && twa`h-16 w-16`,
-        size === "small" && twa`h-8 w-8`,
-        size === "medium" && twa`h-12 w-12`,
+        size === 'large' && twa`h-16 w-16`,
+        size === 'small' && twa`h-8 w-8`,
+        size === 'medium' && twa`h-12 w-12`,
         shadow && twa`shadow`,
-        outline && twa`border-2 border-white`
+        outline && twa`border-2 border-white`,
       )}
     />
   );
-};
+}

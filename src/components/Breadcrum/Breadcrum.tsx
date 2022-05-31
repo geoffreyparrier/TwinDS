@@ -6,9 +6,9 @@ import {
   useMemo,
   useRef,
   useState,
-} from "react";
-import "./Breadcrum.css";
-import { BreadcrumItem } from "./BreadcrumItem";
+} from 'react';
+import './Breadcrum.css';
+import { BreadcrumItem } from './BreadcrumItem';
 
 type Colors = {
   main?: string;
@@ -35,13 +35,13 @@ type Props = {
 function manageThemeColor(colors: Colors) {
   if (colors !== undefined) {
     if (colors.main !== undefined) {
-      setCSSVariableProperty("--main-color", colors.main);
+      setCSSVariableProperty('--main-color', colors.main);
     }
     if (colors.background !== undefined) {
-      setCSSVariableProperty("--main-light-color", colors.background);
+      setCSSVariableProperty('--main-light-color', colors.background);
     }
     if (colors.progress !== undefined) {
-      setCSSVariableProperty("--main-progress-color", colors.progress);
+      setCSSVariableProperty('--main-progress-color', colors.progress);
     }
   }
 }
@@ -51,35 +51,35 @@ function setCSSVariableProperty(property: string, value: string) {
 }
 
 export function Breadcrum(props: Props) {
-  const { onSubmit, children, encType, action, colors, submitting } = props;
+  const {
+    onSubmit, children, encType, action, colors, submitting,
+  } = props;
   const [highestTab, setHighestTab] = useState(0);
   const [currentTab, setCurrentTab] = useState(0);
   const form = useRef<HTMLFormElement | null>(null);
 
-  const content = useMemo<ReactNode[]>(() => {
-    return (
-      Children.map(children, (child) => {
-        if (!isValidElement(child)) return null;
-        if (child.type === BreadcrumItem) {
-          return child;
-        }
-        return null;
-      }) ?? []
-    );
-  }, [children]);
+  const content = useMemo<ReactNode[]>(() => (
+    Children.map(children, (child) => {
+      if (!isValidElement(child)) return null;
+      if (child.type === BreadcrumItem) {
+        return child;
+      }
+      return null;
+    }) ?? []
+  ), [children]);
 
   function handleTabLinkClick(
     e: React.MouseEvent<HTMLDivElement>,
-    newIndex: number
+    newIndex: number,
   ) {
     const animatedElements = document.getElementsByClassName(
-      "link-temp-grey-circle"
+      'link-temp-grey-circle',
     );
     for (let i = 0; i < animatedElements.length; i++) {
       animatedElements[i].remove();
     }
-    let newAnimatedElement = document.createElement("div");
-    newAnimatedElement.className = "link-temp-grey-circle";
+    const newAnimatedElement = document.createElement('div');
+    newAnimatedElement.className = 'link-temp-grey-circle';
     e.currentTarget!.appendChild(newAnimatedElement);
 
     switchTab(newIndex);
@@ -99,7 +99,7 @@ export function Breadcrum(props: Props) {
   function updateProgressBarWidth() {
     const floatWidth = 100 / content.length;
     const width = currentTab * floatWidth + floatWidth / 2;
-    setCSSVariableProperty("--progress-bar-width", width + "%");
+    setCSSVariableProperty('--progress-bar-width', `${width}%`);
   }
 
   let onSubmitFunc = onSubmit;
@@ -107,7 +107,7 @@ export function Breadcrum(props: Props) {
     onSubmitFunc = (e: FormEvent) => {};
   }
 
-  manageThemeColor(colors ? colors : {});
+  manageThemeColor(colors || {});
 
   if (content.length === 0) {
     return <div>No data given to form</div>;
@@ -117,20 +117,20 @@ export function Breadcrum(props: Props) {
     <div className="breadcrum-container">
       <form
         ref={form}
-        action={action ? action : ""}
+        action={action || ''}
         onSubmit={onSubmitFunc}
-        encType={encType ? encType : ""}
+        encType={encType || ''}
       >
         <div className="breadcrum-header">
           <div className="breadcrum-header-progress-bar breadcrum-header-progress-bar-base" />
           <div className="breadcrum-header-progress-bar breadcrum-header-progress-bar-active" />
           {content.map((tab, index) => {
-            let linkClasses = "breadcrum-tab-link";
+            let linkClasses = 'breadcrum-tab-link';
             if (index <= highestTab) {
-              linkClasses += " breadcrum-link-seen";
+              linkClasses += ' breadcrum-link-seen';
             }
             if (index === currentTab) {
-              linkClasses += " breadcrum-link-active";
+              linkClasses += ' breadcrum-link-active';
             }
             return (
               <div
@@ -146,9 +146,9 @@ export function Breadcrum(props: Props) {
           })}
         </div>
         {content.map((tab, index) => {
-          let elementClasses = "breadcrum-tab-content";
+          let elementClasses = 'breadcrum-tab-content';
           if (index !== currentTab) {
-            elementClasses += " breadcrum-content-hidden";
+            elementClasses += ' breadcrum-content-hidden';
           }
 
           let prevBtn = <div className="dummy-btn">dummy</div>;
@@ -159,14 +159,14 @@ export function Breadcrum(props: Props) {
                 className="button-previous-container"
                 onClick={(e) => switchTab(index - 1)}
               >
-                {props.buttons !== undefined &&
-                props.buttons.previous !== undefined ? (
-                  props.buttons.previous
-                ) : (
-                  <div className="breadcrum-button button-previous">
-                    Previous
-                  </div>
-                )}
+                {props.buttons !== undefined
+                && props.buttons.previous !== undefined ? (
+                    props.buttons.previous
+                  ) : (
+                    <div className="breadcrum-button button-previous">
+                      Previous
+                    </div>
+                  )}
               </div>
             );
           }
@@ -176,31 +176,31 @@ export function Breadcrum(props: Props) {
                 className="button-next-container"
                 onClick={(e) => switchTab(index + 1)}
               >
-                {props.buttons !== undefined &&
-                props.buttons.next !== undefined ? (
-                  props.buttons.next
-                ) : (
-                  <div className="breadcrum-button button-next">Next</div>
-                )}
+                {props.buttons !== undefined
+                && props.buttons.next !== undefined ? (
+                    props.buttons.next
+                  ) : (
+                    <div className="breadcrum-button button-next">Next</div>
+                  )}
               </div>
             );
           } else {
             nextBtn = (
               <div className="button-next-container">
-                {props.buttons !== undefined &&
-                props.buttons.last !== undefined ? (
-                  props.buttons.last
-                ) : (
-                  <button
-                    disabled={submitting ? submitting : false}
-                    className={
-                      "breadcrum-button breadcrum-submit-button button-next " +
-                      (submitting ? "submit-btn-disabled" : "")
+                {props.buttons !== undefined
+                && props.buttons.last !== undefined ? (
+                    props.buttons.last
+                  ) : (
+                    <button
+                      disabled={submitting || false}
+                      className={
+                      `breadcrum-button breadcrum-submit-button button-next ${
+                        submitting ? 'submit-btn-disabled' : ''}`
                     }
-                  >
-                    Confirm
-                  </button>
-                )}
+                    >
+                      Confirm
+                    </button>
+                  )}
               </div>
             );
           }
